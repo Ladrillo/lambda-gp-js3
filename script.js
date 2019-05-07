@@ -34,10 +34,10 @@
 // D. using prototypes ========================================================================
 
 // 7- All Persons should use the same "greet" method from Person.prototype.
-//      refactor the Person constructor function so we use Person.prototype to attach "greet".
+//      refactor the Person so we use Person.prototype to attach "greet".
 
 // 8- All Dogs should use the same "eat", "bark" and "poo" methods from Dog.prototype.
-//      refactor the Dog constructor function so we use Dog.prototype to attach methods.
+//      refactor the Dog so we use Dog.prototype to attach methods.
 
 
 // E. the `this` keyword:EXPLICIT BINDING =====================================================
