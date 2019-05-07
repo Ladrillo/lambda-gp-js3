@@ -12,6 +12,7 @@
 //      it has a "poo" method that empties out belly.
 //      it has a "bark" method that logs a bark.
 
+
 // B. the `this` keyword: NEW BINDING =========================================================
 
 // 3- Create a Person constructor function.
@@ -19,6 +20,7 @@
 
 // 4- Create a Dog constructor function.
 //      what does `this` refer to?
+
 
 // C. the `this` keyword: GLOBAL OBJECT BINDING ===============================================
 
@@ -28,6 +30,7 @@
 // 6- Try saving into a variable the "eat" method from Dog.
 //      try using strict at the top of the file.
 //      invoke eat. What happens? Why?
+
 
 // D. the `this` keyword:EXPLICIT BINDING ===================================================
 
@@ -42,6 +45,7 @@
 
 // 10- Save into a variable "extractedBark" the "bark" method from Dog.prototype.bark.
 //      use "bind" to create a "boundExtractedBark" where the `this` is bound to a particular dog.
+
 
 // E. pseudo-classical inheritance ==========================================================
 
