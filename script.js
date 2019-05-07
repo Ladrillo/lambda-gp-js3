@@ -3,7 +3,7 @@
 // 1- Build a "peter" person object.
 //      it has a "name" prop.
 //      it has an "age" prop.
-//      it has a "greet" method that says "hi, I am Peter and I am 23" (do NOT use hard-coded name and age!)
+//      it has a "greet" method that logs "hi, I am Peter and I am 23" (do NOT use hard-coded name and age!)
 
 // 2- Build a "fido" dog object.
 //      it has a "name" prop.
