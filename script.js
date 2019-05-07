@@ -31,14 +31,16 @@
 //      try using strict at the top of the file.
 //      invoke eat. What happens? Why?
 
-
-// D. the `this` keyword:EXPLICIT BINDING ===================================================
+// D. using prototypes ========================================================================
 
 // 7- All Persons should use the same "greet" method from Person.prototype.
 //      refactor the Person constructor function so we use Person.prototype to attach "greet".
 
 // 8- All Dogs should use the same "eat", "bark" and "poo" methods from Dog.prototype.
 //      refactor the Dog constructor function so we use Dog.prototype to attach methods.
+
+
+// E. the `this` keyword:EXPLICIT BINDING =====================================================
 
 // 9- Save into a variable "extractedGreet" the "greet" method from Person.prototype.greet.
 //      use "call" and "apply" to invoke the "extractedGreet" with a particular person as the `this`.
@@ -47,6 +49,6 @@
 //      use "bind" to create a "boundExtractedBark" where the `this` is bound to a particular dog.
 
 
-// E. pseudo-classical inheritance ==========================================================
+// F. pseudo-classical inheritance ============================================================
 
 // 11- Create a Child constructor that inherits from Person
