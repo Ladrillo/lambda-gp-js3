@@ -128,9 +128,13 @@ function Person(nameFromArgs, ageFromArgs) {
   this.name = nameFromArgs;
   this.age = ageFromArgs;
 }
-Person.prototype.greet = function (weather) {
+Person.prototype.greet = function (weather = 'sunny') {
   // weather is not here...
-  return `Hi, I am ${this.name} and I am ${this.age} and it is ${weather}`
+  console.log(`Hi, I am ${this.name} and I am ${this.age} and it is ${weather}`);
+}
+Person.prototype.work = function () {
+  // weather is not here...
+  console.log('working like mad at the office');
 }
 
 const josh = new Person('Josh', 34);
