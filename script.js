@@ -58,6 +58,7 @@ function Car(name, make) {
     this.odometer = this.odometer + distance;
     console.log(`We drove ${distance} and we are at ${this.odometer}!!`);
   }
+  // return this;
   // this object gets returned IMPLICITLY
 }
 
