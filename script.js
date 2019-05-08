@@ -15,6 +15,14 @@ const prius = {
 //      it has an "age" prop.
 //      it has a "greet" method that logs "hi, I am Peter and I am 23" (do NOT use hard-coded name and age!)
 
+const peter = {
+  name: "Peter",
+  age: 23,
+  greet() {
+    console.log(`Hi, I am ${this.name} and I am ${this.age}`);
+  }
+}
+
 // 2- Build a "fido" dog object.
 //      it has a "name" prop.
 //      it has a "belly" prop which initializes as an empty array.
