@@ -66,9 +66,34 @@ const focus = new Car('Focus', 'Ford');
 // 3- Create a Person constructor function.
 //      how come it does not need a return keyword?
 
+function Person(nameFromArgs, ageFromArgs) {
+  this.name = nameFromArgs;
+  this.age = ageFromArgs;
+  this.greet = function () {
+    return `Hi, I am ${this.name} and I am ${this.age}`
+  }
+}
+
+const josh = new Person('Josh', 34);
+
 // 4- Create a Dog constructor function.
 //      what does `this` refer to?
 
+function Dog(name) {
+  this.name = name;
+  this.belly = [];
+  this.eat = function (foodstuff) {
+    this.belly.push(foodstuff);
+  }
+  this.poo = function () {
+    this.belly = [];
+  }
+  this.bark = function () {
+    console.log("woof woof!")
+  }
+}
+
+const toby = new Dog('Toby');
 
 // C. the `this` keyword: GLOBAL OBJECT BINDING ===============================================
 
