@@ -52,36 +52,8 @@ const fido = {
 // 3- Create a Person constructor function.
 //      how come it does not need a return keyword?
 
-const weather = 'sunny'; // aha, here.
-
-function Person(nameFromArgs, ageFromArgs) {
-  this.name = nameFromArgs;
-  this.age = ageFromArgs;
-}
-Person.prototype.greet = function () {
-  // weather is not here...
-  return `Hi, I am ${this.name} and I am ${this.age} and it is ${weather}`
-}
-
-const josh = new Person('Josh', 34);
-
 // 4- Create a Dog constructor function.
 //      what does `this` refer to?
-function Dog(name) {
-  this.name = name;
-  this.belly = [];
-}
-Dog.prototype.eat = function(food) {
-  this.belly.push(food);
-};
-Dog.prototype.poo = function() {
-  this.belly = [];
-};
-Dog.prototype.bark = function() {
-  console.log("Bark!");
-};
-
-const toby = new Dog('Toby');
 
 // C. the `this` keyword: GLOBAL OBJECT BINDING ===============================================
 
@@ -118,9 +90,37 @@ const focusDriveMethodPulledOutOfFocus = focus.drive;
 // 7- All Persons should use the same "greet" method from Person.prototype.
 //      refactor the Person so we use Person.prototype to attach "greet".
 
+const weather = 'sunny'; // aha, here.
+
+function Person(nameFromArgs, ageFromArgs) {
+  this.name = nameFromArgs;
+  this.age = ageFromArgs;
+}
+Person.prototype.greet = function () {
+  // weather is not here...
+  return `Hi, I am ${this.name} and I am ${this.age} and it is ${weather}`
+}
+
+const josh = new Person('Josh', 34);
+
 // 8- All Dogs should use the same "eat", "bark" and "poo" methods from Dog.prototype.
 //      refactor the Dog so we use Dog.prototype to attach methods.
 
+function Dog(name) {
+  this.name = name;
+  this.belly = [];
+}
+Dog.prototype.eat = function(food) {
+  this.belly.push(food);
+};
+Dog.prototype.poo = function() {
+  this.belly = [];
+};
+Dog.prototype.bark = function() {
+  console.log("Bark!");
+};
+
+const toby = new Dog('Toby');
 
 // E. the `this` keyword:EXPLICIT BINDING =====================================================
 
