@@ -1,4 +1,7 @@
+'use strict'
 // A. the `this` keyword: IMPLICIT BINDING ===================================================
+
+var foo = 7;
 
 const prius = {
   name: 'Prius',
