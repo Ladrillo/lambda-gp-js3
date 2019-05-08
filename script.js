@@ -66,27 +66,6 @@ const fido = {
 
 // D. using prototypes ========================================================================
 
-// IN ORDER TO CREATE A CAR FACTORY
-// I create a Car constructor (a function meant to be called with `new`)
-function Car(name, make) {
-  // when invoked with `new`:
-  // an empty object gets created magically and assigned to `this`
-  // we tack the usual props and methods to the `this`
-  this.name = name;
-  this.make = make;
-  this.odometer = 0;
-  // this object gets returned IMPLICITLY
-}
-// 2- tack the method on the Car.prototype
-Car.prototype.drive = function (distance = 10) {
-  console.log('DA THIS IN DRIVE: ', this);
-  this.odometer = this.odometer + distance;
-  console.log(`We drove ${distance} and we are at ${this.odometer}!!`);
-}
-
-const focus = new Car('Focus', 'Ford'); // <- 10 million of these
-const focusDriveMethodPulledOutOfFocus = focus.drive;
-
 // 7- All Persons should use the same "greet" method from Person.prototype.
 //      refactor the Person so we use Person.prototype to attach "greet".
 
@@ -123,6 +102,29 @@ Dog.prototype.bark = function() {
 const toby = new Dog('Toby');
 
 // E. the `this` keyword:EXPLICIT BINDING =====================================================
+
+// IN ORDER TO CREATE A CAR FACTORY
+// I create a Car constructor (a function meant to be called with `new`)
+function Car(name, make) {
+  // when invoked with `new`:
+  // an empty object gets created magically and assigned to `this`
+  // we tack the usual props and methods to the `this`
+  this.name = name;
+  this.make = make;
+  this.odometer = 0;
+  // this object gets returned IMPLICITLY
+}
+// 2- tack the method on the Car.prototype
+Car.prototype.drive = function (distance = 10) {
+  console.log('DA THIS IN DRIVE: ', this);
+  this.odometer = this.odometer + distance;
+  console.log(`We drove ${distance} and we are at ${this.odometer}!!`);
+}
+
+const focus = new Car('Focus', 'Ford'); // <- 10 million of these
+const focusDriveMethodPulledOutOfFocus = focus.drive;
+focusDriveMethodPulledOutOfFocus.call(focus);
+focusDriveMethodPulledOutOfFocus.apply(focus, [23]);
 
 // 9- Save into a variable "extractedGreet" the "greet" method from Person.prototype.greet.
 //      use "call" and "apply" to invoke the "extractedGreet" with a particular person as the `this`.
