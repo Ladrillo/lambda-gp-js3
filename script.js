@@ -158,11 +158,7 @@ Child.prototype.play = function () {
 const jimmy = new Child('Jimmy', 5, 'train');
 
 // THIS
-
-
 // what is this?
-
-
 // depends on how the function (containing the this) is INVOKED
 
 
@@ -171,6 +167,8 @@ const jimmy = new Child('Jimmy', 5, 'train');
 // greet() -> `this` will be the Window object or `undefined` (depending on whether we 'use strict' or not)
 
 // greet.call(josh) -> `this` refers back to josh
+
+// new Person('Josh') -> `this` refers to the newly created Person
 
 
 function funkyThis() {
