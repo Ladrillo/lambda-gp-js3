@@ -75,7 +75,7 @@ function Person(nameFromArgs, ageFromArgs) {
   this.name = nameFromArgs;
   this.age = ageFromArgs;
 }
-Person.prototype.greet = function () {
+Person.prototype.greet = function (weather) {
   // weather is not here...
   return `Hi, I am ${this.name} and I am ${this.age} and it is ${weather}`
 }
@@ -130,10 +130,10 @@ const focusDriveMethodPulledOutOfFocus = focus.drive;
 //      use "call" and "apply" to invoke the "extractedGreet" with a particular person as the `this`.
 
 const extractedGreet = josh.greet;
-extractedGreet.call(josh);
+extractedGreet.call(josh, 'raining');
 extractedGreet.apply(josh);
 
-const newVersionOfGreetWithTheRightThis = extractedGreet.bind(josh);
+const newVersionOfGreetWithTheRightThis = extractedGreet.bind(josh, 'raining');
 
 // 10- Save into a variable "extractedBark" the "bark" method from Dog.prototype.bark.
 //      use "bind" to create a "boundExtractedBark" where the `this` is bound to a particular dog.
