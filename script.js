@@ -95,7 +95,7 @@ const toby = new Dog('Toby');
 function Car(name, make) {
   // when invoked with `new`:
   // an empty object gets created magically and assigned to `this`
-  // we tack the usual props and methods to the `this`
+  // we tack the usual props to the `this`
   this.name = name;
   this.make = make;
   this.odometer = 0;
