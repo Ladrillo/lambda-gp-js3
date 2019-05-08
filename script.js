@@ -130,7 +130,10 @@ const focusDriveMethodPulledOutOfFocus = focus.drive;
 //      use "call" and "apply" to invoke the "extractedGreet" with a particular person as the `this`.
 
 const extractedGreet = josh.greet;
-extractedGreet.call(josh ,'sunny') 
+extractedGreet.call(josh);
+extractedGreet.apply(josh);
+
+const newVersionOfGreetWithTheRightThis = extractedGreet.bind(josh);
 
 // 10- Save into a variable "extractedBark" the "bark" method from Dog.prototype.bark.
 //      use "bind" to create a "boundExtractedBark" where the `this` is bound to a particular dog.
@@ -139,3 +142,22 @@ extractedGreet.call(josh ,'sunny')
 // F. pseudo-classical inheritance ============================================================
 
 // 11- Create a Child constructor that inherits from Person
+
+
+
+
+
+// THIS
+
+
+// what is this?
+
+
+// depends on how the function (containing the this) is INVOKED
+
+
+// josh.greet() -> `this` refers back to josh
+
+// greet() -> `this` will be the Window object or `undefined` (depending on whether we 'use strict' or not)
+
+// greet.call(josh) -> `this` refers back to josh
