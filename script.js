@@ -123,11 +123,14 @@ Car.prototype.drive = function (distance = 10) {
 
 const focus = new Car('Focus', 'Ford'); // <- 10 million of these
 const focusDriveMethodPulledOutOfFocus = focus.drive;
-focusDriveMethodPulledOutOfFocus.call(focus);
-focusDriveMethodPulledOutOfFocus.apply(focus, [23]);
+// focusDriveMethodPulledOutOfFocus.call(focus, 13);
+// focusDriveMethodPulledOutOfFocus.apply(focus, [23]);
 
 // 9- Save into a variable "extractedGreet" the "greet" method from Person.prototype.greet.
 //      use "call" and "apply" to invoke the "extractedGreet" with a particular person as the `this`.
+
+const extractedGreet = Person.prototype.greet;
+extractedGreet.call(josh ,'sunny') 
 
 // 10- Save into a variable "extractedBark" the "bark" method from Dog.prototype.bark.
 //      use "bind" to create a "boundExtractedBark" where the `this` is bound to a particular dog.
