@@ -45,6 +45,22 @@ const fido = {
 }
 
 // B. the `this` keyword: NEW BINDING =========================================================
+// IN ORDER TO CREATE A CAR FACTORY
+// I create a Car constructor (a function meant to be called with `new`)
+function Car(name, make) {
+  // an empty object gets created magically and assigned to `this`
+  // we tack the usual props and methods to the `this`
+  this.name = name;
+  this.make = make;
+  this.odometer = 0;
+  this.drive = function (distance = 10) {
+    this.odometer = this.odometer + distance;
+    console.log(`We drove ${distance} and we are at ${this.odometer}!!`);
+  }
+  // this object gets returned IMPLICITLY
+}
+
+const focus = new Car('Focus', 'Ford');
 
 // 3- Create a Person constructor function.
 //      how come it does not need a return keyword?
