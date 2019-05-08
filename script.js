@@ -69,19 +69,6 @@ const fido = {
 // 7- All Persons should use the same "greet" method from Person.prototype.
 //      refactor the Person so we use Person.prototype to attach "greet".
 
-const weather = 'sunny'; // aha, here.
-
-function Person(nameFromArgs, ageFromArgs) {
-  this.name = nameFromArgs;
-  this.age = ageFromArgs;
-}
-Person.prototype.greet = function (weather) {
-  // weather is not here...
-  return `Hi, I am ${this.name} and I am ${this.age} and it is ${weather}`
-}
-
-const josh = new Person('Josh', 34);
-
 // 8- All Dogs should use the same "eat", "bark" and "poo" methods from Dog.prototype.
 //      refactor the Dog so we use Dog.prototype to attach methods.
 
@@ -89,13 +76,13 @@ function Dog(name) {
   this.name = name;
   this.belly = [];
 }
-Dog.prototype.eat = function(food) {
+Dog.prototype.eat = function (food) {
   this.belly.push(food);
 };
-Dog.prototype.poo = function() {
+Dog.prototype.poo = function () {
   this.belly = [];
 };
-Dog.prototype.bark = function() {
+Dog.prototype.bark = function () {
   console.log("Bark!");
 };
 
@@ -129,12 +116,6 @@ const focusDriveMethodPulledOutOfFocus = focus.drive;
 // 9- Save into a variable "extractedGreet" the "greet" method from Person.prototype.greet.
 //      use "call" and "apply" to invoke the "extractedGreet" with a particular person as the `this`.
 
-const extractedGreet = josh.greet;
-extractedGreet.call(josh, 'raining');
-extractedGreet.apply(josh);
-
-const newVersionOfGreetWithTheRightThis = extractedGreet.bind(josh, 'raining');
-
 // 10- Save into a variable "extractedBark" the "bark" method from Dog.prototype.bark.
 //      use "bind" to create a "boundExtractedBark" where the `this` is bound to a particular dog.
 
@@ -143,9 +124,36 @@ const newVersionOfGreetWithTheRightThis = extractedGreet.bind(josh, 'raining');
 
 // 11- Create a Child constructor that inherits from Person
 
+function Person(nameFromArgs, ageFromArgs) {
+  this.name = nameFromArgs;
+  this.age = ageFromArgs;
+}
+Person.prototype.greet = function (weather) {
+  // weather is not here...
+  return `Hi, I am ${this.name} and I am ${this.age} and it is ${weather}`
+}
 
+const josh = new Person('Josh', 34);
+const extractedGreet = josh.greet;
+extractedGreet.call(josh, 'raining');
+extractedGreet.apply(josh, ['sunny']);
 
+const newVersionOfGreetWithTheRightThis = extractedGreet.bind(josh, 'raining');
 
+// 1 get constructor goin
+function Child(name, age, favoriteToy) {
+  // here this will be what we want (when we invoke Child with `new`)
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
+}
+// 2 get a Child.prototype going that inherits from Person.prototype
+Child.prototype = Object.create(Person.prototype);
+// 3 attach methods as usual
+Child.prototype.play = function () {
+  console.log(`Playing with my ${this.favoriteToy}`);
+}
+
+const jimmy = new Child('Jimmy', 5, 'train');
 
 // THIS
 
