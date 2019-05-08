@@ -1,5 +1,15 @@
 // A. the `this` keyword: IMPLICIT BINDING ===================================================
 
+const prius = {
+  name: 'Prius',
+  make: 'Toyota',
+  odometer: 0,
+  drive(dist = 10) {
+    this.odometer = this.odometer + dist;
+    console.log(`We drove ${dist} and we are at ${this.odometer}!!`);
+  }
+}
+
 // 1- Build a "peter" person object.
 //      it has a "name" prop.
 //      it has an "age" prop.
