@@ -52,40 +52,47 @@ const fido = {
 // 3- Create a Person constructor function.
 //      how come it does not need a return keyword?
 
-const weather = 'cloudy'; // aha, here.
+const weather = 'sunny'; // aha, here.
 
 function Person(nameFromArgs, ageFromArgs) {
   this.name = nameFromArgs;
   this.age = ageFromArgs;
-  // is weather here?
-  this.greet = function () {
-    // weather is not here...
-    return `Hi, I am ${this.name} and I am ${this.age} and it is ${weather}`
-  }
+}
+Person.prototype.greet = function () {
+  // weather is not here...
+  return `Hi, I am ${this.name} and I am ${this.age} and it is ${weather}`
 }
 
 const josh = new Person('Josh', 34);
 
 // 4- Create a Dog constructor function.
 //      what does `this` refer to?
-
 function Dog(name) {
   this.name = name;
   this.belly = [];
-  this.eat = function (foodstuff) {
-    this.belly.push(foodstuff);
-  }
-  this.poo = function () {
-    this.belly = [];
-  }
-  this.bark = function () {
-    console.log("woof woof!")
-  }
 }
+Dog.prototype.eat = function(food) {
+  this.belly.push(food);
+};
+Dog.prototype.poo = function() {
+  this.belly = [];
+};
+Dog.prototype.bark = function() {
+  console.log("Bark!");
+};
 
 const toby = new Dog('Toby');
 
 // C. the `this` keyword: GLOBAL OBJECT BINDING ===============================================
+
+// 5- Try saving into a variable the "greet" method from Person.
+//      invoke greet. Does it work? Why not?
+
+// 6- Try saving into a variable the "eat" method from Dog.
+//      try using strict at the top of the file.
+//      invoke eat. What happens? Why?
+
+// D. using prototypes ========================================================================
 
 // IN ORDER TO CREATE A CAR FACTORY
 // I create a Car constructor (a function meant to be called with `new`)
@@ -96,26 +103,17 @@ function Car(name, make) {
   this.name = name;
   this.make = make;
   this.odometer = 0;
-  this.drive = function (distance = 10) {
-    console.log('DA THIS IN DRIVE: ', this);
-    this.odometer = this.odometer + distance;
-    console.log(`We drove ${distance} and we are at ${this.odometer}!!`);
-  }
-  // return this;
   // this object gets returned IMPLICITLY
 }
+// 2- tack the method on the Car.prototype
+Car.prototype.drive = function (distance = 10) {
+  console.log('DA THIS IN DRIVE: ', this);
+  this.odometer = this.odometer + distance;
+  console.log(`We drove ${distance} and we are at ${this.odometer}!!`);
+}
 
-const focus = new Car('Focus', 'Ford');
+const focus = new Car('Focus', 'Ford'); // <- 10 million of these
 const focusDriveMethodPulledOutOfFocus = focus.drive;
-
-// 5- Try saving into a variable the "greet" method from Person.
-//      invoke greet. Does it work? Why not?
-
-// 6- Try saving into a variable the "eat" method from Dog.
-//      try using strict at the top of the file.
-//      invoke eat. What happens? Why?
-
-// D. using prototypes ========================================================================
 
 // 7- All Persons should use the same "greet" method from Person.prototype.
 //      refactor the Person so we use Person.prototype to attach "greet".
