@@ -30,6 +30,19 @@ const peter = {
 //      it has a "poo" method that empties out belly.
 //      it has a "bark" method that logs a bark.
 
+const fido = {
+  name: "Fido",
+  belly: [],
+  eat(foodstuff) {
+    this.belly.push(foodstuff);
+  },
+  poo() {
+    this.belly = [];
+  },
+  bark() {
+    console.log("Woof woof");
+  }
+}
 
 // B. the `this` keyword: NEW BINDING =========================================================
 
