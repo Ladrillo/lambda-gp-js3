@@ -55,6 +55,7 @@ function Car(name, make) {
   this.make = make;
   this.odometer = 0;
   this.drive = function (distance = 10) {
+    console.log('DA THIS IN DRIVE: ', this);
     this.odometer = this.odometer + distance;
     console.log(`We drove ${distance} and we are at ${this.odometer}!!`);
   }
@@ -67,11 +68,15 @@ const focus = new Car('Focus', 'Ford');
 // 3- Create a Person constructor function.
 //      how come it does not need a return keyword?
 
+const weather = 'cloudy'; // aha, here.
+
 function Person(nameFromArgs, ageFromArgs) {
   this.name = nameFromArgs;
   this.age = ageFromArgs;
+  // is weather here?
   this.greet = function () {
-    return `Hi, I am ${this.name} and I am ${this.age}`
+    // weather is not here...
+    return `Hi, I am ${this.name} and I am ${this.age} and it is ${weather}`
   }
 }
 
