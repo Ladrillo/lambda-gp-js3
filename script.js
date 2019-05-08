@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 // A. the `this` keyword: IMPLICIT BINDING ===================================================
 
 var foo = 7;
@@ -129,11 +129,9 @@ function Person(nameFromArgs, ageFromArgs) {
   this.age = ageFromArgs;
 }
 Person.prototype.greet = function (weather = 'sunny') {
-  // weather is not here...
   console.log(`Hi, I am ${this.name} and I am ${this.age} and it is ${weather}`);
 }
 Person.prototype.work = function () {
-  // weather is not here...
   console.log('working like mad at the office');
 }
 
@@ -151,7 +149,7 @@ function Child(name, age, favoriteToy) {
   this.favoriteToy = favoriteToy;
 }
 // 2 get a Child.prototype going that inherits from Person.prototype
-Child.prototype = Object.create(Person.prototype);
+Child.prototype = Object.create(Person.prototype);  // make Child.prototype get all the stuff from Person.protype
 // 3 attach methods as usual
 Child.prototype.play = function () {
   console.log(`Playing with my ${this.favoriteToy}`);
@@ -173,3 +171,10 @@ const jimmy = new Child('Jimmy', 5, 'train');
 // greet() -> `this` will be the Window object or `undefined` (depending on whether we 'use strict' or not)
 
 // greet.call(josh) -> `this` refers back to josh
+
+
+function funkyThis() {
+  console.log(this);
+}
+
+const funkyWithSevenThis = funkyThis.bind(7);
