@@ -33,13 +33,13 @@ const peter = {
 const fido = {
   name: "Fido",
   belly: [],
-  eat(foodstuff) {
-    this.belly.push(foodstuff);
+  eat: function (foodstuff) {
+    this.belly = this.belly.concat(foodstuff);
   },
-  poo() {
+  poo: function () {
     this.belly = [];
   },
-  bark() {
+  bark: function () {
     console.log("Woof woof");
   }
 }
