@@ -129,7 +129,7 @@ const focusDriveMethodPulledOutOfFocus = focus.drive;
 // 9- Save into a variable "extractedGreet" the "greet" method from Person.prototype.greet.
 //      use "call" and "apply" to invoke the "extractedGreet" with a particular person as the `this`.
 
-const extractedGreet = Person.prototype.greet;
+const extractedGreet = josh.greet;
 extractedGreet.call(josh ,'sunny') 
 
 // 10- Save into a variable "extractedBark" the "bark" method from Dog.prototype.bark.
