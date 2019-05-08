@@ -48,6 +48,7 @@ const fido = {
 // IN ORDER TO CREATE A CAR FACTORY
 // I create a Car constructor (a function meant to be called with `new`)
 function Car(name, make) {
+  // when invoked with `new`:
   // an empty object gets created magically and assigned to `this`
   // we tack the usual props and methods to the `this`
   this.name = name;
